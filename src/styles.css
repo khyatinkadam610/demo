@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-color: #e3f4f7;
+}
+.cart-item{
+    font-size: small;
+}
+
+.filter{
+    font-size: small;
+}
+
+.card, .form-control, .btn{
+    border-radius: 0.15rem;
+}
+
+.list-group-item:first-child{
+    border-radius: 0.15rem;
+}
+
+.list-group-item:last-child{
+    border-radius: 0.15rem;
+}
+
+.product-btn {
+    font-size: smaller;
+  }

@@ -1,0 +1,31 @@
+<div class="card">
+    <div class="card-header">
+        <strong>Filters</strong>
+    </div>
+    <div class="card-body filter">
+        <form (submit)="OnSubmit(f)" #f="ngForm">
+            <div class="form-control border-0">
+                <label for="from">From</label>
+                <input type="number" class="form-control" name="from" id="from" pattern="^[0-9]+[0-9]*$" required ngModel>
+            </div>
+
+            <div class="form-control border-0">
+                <label for="to">To</label>
+                <input type="number" name="to" id="to" class="form-control" pattern="^[1-9]+[0-9]*$" required ngModel>
+            </div>
+            <div class="text-center">
+            
+                <button class="btn btn-primary btn-block btn-sm" [disabled]="!f.valid" id="button">Filter by price</button>
+              </div>
+        </form>
+    </div>
+</div>
+
+<div class="card text-center">
+    <div class="card-header ">
+        <strong>My Orders</strong>
+    </div>
+    <div class="card-body filter">
+        <button class="btn btn-primary btn-block btn-sm" (click)="onMyOrders()">Orders</button>
+    </div>
+</div>

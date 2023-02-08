@@ -1,0 +1,23 @@
+.bd-placeholder-img{
+    height: 125px;
+    width: 125px;
+}
+
+.right{
+    float: right;
+}
+
+.custom-margin{
+    margin-bottom: 10%;
+}
+
+.blue{
+    background-color: #aadae2;
+}
+
+.progressBlue{
+    background-color: #3dafc3;
+}
+.bluetext{
+    color: #3dafc3;
+}

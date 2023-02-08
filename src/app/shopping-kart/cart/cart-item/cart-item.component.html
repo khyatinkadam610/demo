@@ -1,0 +1,15 @@
+<div class="cart-item">
+    <div class="col">
+        <div class="row">
+
+            <span class="mb-2">{{this.cartItem.product.name}}</span>
+        </div>
+        <div class="row-6">
+
+            <span>{{this.cartItem.price}}</span> *
+            <span>{{this.cartItem.qty}}</span> :
+             <strong>{{this.cartItem.price*this.cartItem.qty | currency:'INR'}}</strong>
+        </div>
+    </div>
+    
+</div>

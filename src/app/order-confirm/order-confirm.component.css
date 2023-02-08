@@ -1,0 +1,20 @@
+.bd-placeholder-img{
+    height: 125px;
+    width: 125px;
+}
+
+.right{
+    float: right;
+}
+
+.custom-margin{
+    margin-bottom: 10%;
+}
+
+.blue{
+    background-color: white;
+}
+
+.bluetext{
+    color: #3dafc3;
+}

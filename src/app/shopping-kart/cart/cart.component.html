@@ -1,0 +1,22 @@
+<div *ngIf="cartItems.length === 0" class="alert alert-info">Your Cart is Empty.</div>
+
+<ul *ngIf="cartItems.length > 0" class="list-group">
+    <li class="list-group-item" *ngFor="let item of cartItems">
+        <div class="row">
+            <div class="col-8">
+                <app-cart-item [cartItem]="item"></app-cart-item>
+            </div>
+            <div class="col-4 mt-1">
+                <button class="btn btn-danger btn-sm" (click)="onDeleteItem(item.id)"><fa-icon [icon]="faCross" class="center"></fa-icon></button>
+            </div>
+        </div>
+    </li>
+    
+    <li class="list-group-item active">
+        <strong>Total: {{this.cartTotal|currency:'INR'}}</strong>
+    </li>
+    
+</ul>
+<div class="my-2 text-center">
+  <button class="btn btn-success " [disabled]="cartItems.length === 0" (click)="checkOut()">Proceed To CheckOut</button>
+</div>

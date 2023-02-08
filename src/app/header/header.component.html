@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg bg-light mb-5 p-0">
+  <div class="w-100 blue p-3">
+    <div class="row">
+      <div class="col-sm-4">
+        <div class="container-fluid d-flex align-items-start ">
+          <a class="navbar-brand">
+            <fa-icon [icon]="faShoppingCart"></fa-icon>
+          </a>
+          <a class="navbar-brand " routerLink="/shop">KartWheel</a>
+        </div>
+      </div>
+      <div class="col-sm-8 ">
+        <form #form="ngForm" class="search-form">
+          <div class="row">
+            <div *ngIf="isAuthenticated" class="col-sm-9 d-flex">
+              <input class="form-control " type="search" name="search" id="search" placeholder="Search"
+                aria-label="Search" ngModel>
+              <button class="btn btn-outline-success me-2" (click)="search(form)">Search</button>
+            </div>
+            <div class="col-sm-3 d-flex justify-content-center mt-sm-2">
+              <button *ngIf="isAuthenticated" class="btn btn-secondary me-3 logout "
+                (click)="onLogOut()">LogOut</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- <div class="container">
+  <div class="row" >
+    <div class="col-sm-8" style="background-color: yellow ;">col-sm-8</div>
+    <div class="col-sm-4" style="background-color: yellow ;">col-sm-4</div>
+  </div>
+  <div class="row">
+    <div class="col-sm" style="background-color: yellow ;">col-sm</div>
+    <div class="col-sm" style="background-color: yellow ;">col-sm</div>
+    <div class="col-sm" style="background-color: yellow ;">col-sm</div>
+  </div>
+</div> -->

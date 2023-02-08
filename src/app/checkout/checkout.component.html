@@ -1,0 +1,134 @@
+<div class="list-group center custom-margin">
+  <a class="list-group-item list-group-item-action" *ngFor="let cart of cartItems">
+    <div class="">
+      <div class="row">
+        <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+          <img class="bd-placeholder-img card-img-top p-2" [src]="cart.product.imageUrl" />
+
+        </div>
+        <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+
+          <h5 class="my-4 text-muted text-center">{{cart.product.name}}</h5>
+        </div>
+        <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+          <div class="row">
+            <h5 class="my-4 text-muted text-center">{{cart.price}} x {{cart.qty}} </h5>
+            <!-- <h3 class="my-4"></h3> -->
+          </div>
+        </div>
+        <div class="col-md-4 text-center d-flex justify-content-center align-items-center">
+          <div class="row">
+            <div class="col">
+
+              <h4 class="my-4 ">{{cart.qty*cart.price | currency:'INR'}}</h4>
+            </div>
+            <div class="col">
+              <button class="btn btn-danger my-4" (click)="onDeleteItem(cart.id)">
+                <fa-icon [icon]="faCross" class="center"></fa-icon>
+              </button>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </a>
+
+  <div *ngIf="cartItems.length === 0" class="alert alert-info">No item in Checkout.</div>
+
+
+</div>
+<nav *ngIf="cartItems.length !== 0" class="navbar fixed-bottom navbar-light bg-light p-0">
+  <div class="container-fluid blue">
+    <div class="d-flex  w-100 justify-content-between p-3">
+      <h5 class="mb-1 navbar-brand">Total: {{cartTotal | currency:'INR'}}</h5>
+      <button class="btn btn-success my-2 p-2" (click)="open(content)">Confirm Order</button>
+    </div>
+    <a class="navbar-brand" href="#"></a>
+  </div>
+</nav>
+
+<ng-template #content let-modal>
+  <section class="h-100">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-10 col-xl-8 w-100">
+          <div class="card" style="border-radius: 10px;">
+            <div class="card-header px-4 py-5">
+              <h5 class="text-muted mb-0">Thanks for your Order, <span class="bluetext">Amartya</span>!</h5>
+            </div>
+            <div class="card-body p-4">
+              <div class="d-flex justify-content-between align-items-center mb-4">
+                <p class="lead fw-normal mb-0 bluetext">Receipt</p>
+                <!-- <p class="small text-muted mb-0">Receipt Voucher : 1KAU9-84UIL</p> -->
+              </div>
+              <div class="card shadow-0 border mb-4" *ngFor="let cart of checkoutList">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-3">
+                      <img [src]="cart.product.imageUrl" class="img-fluid">
+                    </div>
+                    <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                      <p class="text-muted mb-0">{{cart.product.name}}</p>
+                    </div>
+                    <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                      <p class="text-muted mb-0 small">Qty: {{cart.qty}}</p>
+                    </div>
+                    <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                      <p class="text-muted mb-0 small">{{cart.qty*cart.price | currency:'INR'}}</p>
+                    </div>
+                  </div>
+                  <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+                  <div class="row d-flex align-items-center">
+                    <div class="col-md-2">
+                      <p class="text-muted mb-0 small">Track Order</p>
+                    </div>
+                    <div class="col-md-10">
+                      <div class="progress" style="height: 6px; border-radius: 16px;">
+                        <div class="progress-bar blue" role="progressbar" style="width: 5%; border-radius: 16px;"
+                          aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                      </div>
+                      <div class="d-flex justify-content-around mb-1">
+                        <p class="text-muted mt-1 mb-0 small ms-xl-5">Out for delivary</p>
+                        <p class="text-muted mt-1 mb-0 small ms-xl-5">Delivered</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="d-flex justify-content-between pt-2">
+                <p class="fw-bold mb-0">Order Details</p>
+                <p class="text-muted mb-0"><span class="fw-bold me-4">Total</span> {{cartTotal | currency:'INR'}}</p>
+              </div>
+
+              <div class="d-flex justify-content-between pt-2">
+                <p class="text-muted mb-0">Invoice Number : 788152</p>
+                <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span> 0.00</p>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                <p class="text-muted mb-0">Invoice Date : {{date|date}}</p>
+                <p class="text-muted mb-0"><span class="fw-bold me-4">GST 18%</span> {{cartTotal*0.18| currency:'INR'}}
+                </p>
+              </div>
+
+              <div class="d-flex justify-content-between mb-5">
+                <p class="text-muted mb-0">Recepits Voucher : 18KU-62IIK</p>
+                <p class="text-muted mb-0"><span class="fw-bold me-4">Delivery Charges</span> Free</p>
+              </div>
+            </div>
+            <div class="card-footer border-0 px-4 py-5 blue"
+              style=" border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+              <h5 class="d-flex align-items-center justify-content-end text-uppercase mb-0 text-muted fw-bold">Total
+                paid: <span class="h2 mb-0 ms-2">{{cartTotal*1.18 | currency:'INR'}}</span></h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</ng-template>

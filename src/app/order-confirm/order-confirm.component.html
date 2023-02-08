@@ -1,0 +1,36 @@
+<h4>My Orders: </h4>
+<br>
+<div class="list-group center custom-margin">
+    <a class="list-group-item list-group-item-action" *ngFor="let cart of orders">
+        <div class="">
+            <div class="row">
+                <div class="col-md-3 text-center d-flex justify-content-center align-items-center">
+                    <img class="bd-placeholder-img card-img-top p-2" [src]="cart.product.imageUrl" />
+
+                </div>
+                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+
+                    <h5 class="my-4 text-muted text-center">{{cart.product.name}}</h5>
+                </div>
+                <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <div class="row">
+                        <h5 class="my-4 text-muted text-center">{{cart.price}} x {{cart.qty}} </h5>
+                        <!-- <h3 class="my-4"></h3> -->
+                    </div>
+                </div>
+                <div class="col-md-5 text-center d-flex justify-content-center align-items-center">
+                    <div class="row">
+                        <div class="col-5">
+
+                            <h4 class="my-4 ">{{cart.qty*cart.price | currency:'INR'}}</h4>
+                        </div>
+                        <div class="col-7 text-center d-flex justify-content-center align-items-center">
+                            {{cart.OrderDate | date}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+
+</div>
